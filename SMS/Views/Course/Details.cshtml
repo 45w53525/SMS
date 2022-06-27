@@ -1,0 +1,31 @@
+﻿@model SMS.Models.Course
+
+@{
+    ViewBag.Title = "Details";
+}
+<div>
+    <h4 class="mt-4">Specific Course Information</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseFees)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseFees)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CourseId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

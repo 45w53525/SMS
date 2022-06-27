@@ -1,0 +1,54 @@
+﻿@model IEnumerable<SMS.Models.Student>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@Html.Raw(TempData["Insert"])
+@Html.Raw(TempData["Update"])
+@Html.Raw(TempData["Delete"])
+
+<div class="text-center">
+    <a class="btn btn-success mt-3" href="@Url.Action("Create","Student")">Add New Student</a>
+    <a class="btn btn-info mt-3" href="@Url.Action("Index","Course")">Add New Course</a>
+    <a class="btn btn-warning mt-3" href="@Url.Action("Index","Teacher")">Add New Teacher</a>
+</div>
+<h2 class="text-center mt-4">ALL STUDENT INFORMATION</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+
+        <th>@Html.DisplayNameFor(model => model.Course)</th>
+        <th>@Html.DisplayNameFor(model => model.Teacher)</th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.FirstName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.LastName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Course.CourseName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Teacher.TeacherFirstName)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.StudentId }) |
+        @Html.ActionLink("Details", "Details", new { id = item.StudentId }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.StudentId })
+    </td>
+</tr>
+    }
+
+</table>

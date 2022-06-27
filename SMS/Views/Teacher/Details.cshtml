@@ -1,0 +1,32 @@
+﻿@model SMS.Models.Teacher
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div>
+    <h4 class="mt-4">Show Teacher Information</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TeacherFirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeacherFirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeacherLastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeacherLastName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TeacherId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

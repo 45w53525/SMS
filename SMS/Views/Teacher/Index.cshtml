@@ -1,0 +1,44 @@
+﻿@model IEnumerable<SMS.Models.Teacher>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@Html.Raw(TempData["Insert"])
+@Html.Raw(TempData["Update"])
+@Html.Raw(TempData["Delete"])
+<a class="btn btn-dark mt-3" href="@Url.Action("Index","Student")">Back to SMS</a>
+<h2 class="mt-4">Show Teacher Information</h2>
+
+<p>
+    <a class="btn btn-success mt-3" href="@Url.Action("Create","Teacher")">Add New Teacher</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TeacherFirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TeacherLastName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeacherFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeacherLastName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.TeacherId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.TeacherId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.TeacherId })
+            </td>
+        </tr>
+    }
+
+</table>
